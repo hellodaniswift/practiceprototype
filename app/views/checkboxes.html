@@ -1,0 +1,50 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Home – {{serviceName}} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+<form method="post" action="checkboxes-answer"> 
+{{ govukCheckboxes({
+  idPrefix: "which-of-the-following-are-true",
+  name: "which-of-the-following-are-true",
+  fieldset: {
+    legend: {
+      text: "Which of the following are true?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--xl"
+    }
+  },
+
+  items: [
+    {
+      value: "I am over 18",
+      text: "I am over 18"
+    },
+    {
+      value: "I am a woman",
+      text: "I am a woman"
+    },
+    {
+      value: "I have brown hair",
+      text: "I have brown hair"
+    },    
+    {
+      value: "I am married",
+      text: "I am married"
+    }
+  ]
+}) }}
+
+{{ govukButton({
+  text: "Continue"
+}) }}
+</form>
+  </div>
+</div>
+
+{% endblock %}

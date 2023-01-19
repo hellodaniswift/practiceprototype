@@ -1,0 +1,44 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Home – {{serviceName}} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+<form method="post" action="page2-answer"> 
+{{ govukRadios({
+  idPrefix: "do-you-want-to-start",
+  name: "do-you-want-to-start",
+  fieldset: {
+    legend: {
+      text: "Do you want to start?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--xl"
+    }
+  },
+
+  items: [
+    {
+      value: "Yes",
+      text: "Yes",
+      checked: true if data['do-you-want-to-start']=='Yes'
+    },
+    {
+      value: "No",
+      text: "No",
+      checked: true if data['do-you-want-to-start']=='No'
+
+    }
+  ]
+}) }}
+{{ govukButton({
+  text: "Continue"
+}) }}
+</form>
+  </div>
+</div>
+
+{% endblock %}
